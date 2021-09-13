@@ -42,7 +42,7 @@ export const URLList = ()=> {
         getList()
     },[])
 
-    return (<Flex m={[2,4]} p={3} sx={{borderWidth:"1px", borderStyle:"solid", borderColor:"blue"}}>
+    return (<Flex m={[2,4]} p={3} >
        {loading && <div>loading....</div>}
        <Flex flexDirection="column">
        {urlList && urlList.map(item=> <URLItem key={item._id} {...item} />)}

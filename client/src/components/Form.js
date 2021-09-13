@@ -52,7 +52,7 @@ export const Form = ()=> {
 
     }
     return (
-    <Flex flexDirection="column" m={[2,4]} sx={{border:"1px solid red"}}><Flex as="form"  p={3}  onSubmit={onSubmit}>
+    <Flex flexDirection="column" m={[2,4]} ><Flex as="form"  p={3}  onSubmit={onSubmit}>
       
       <Box width={"50%"}>
   <Label htmlFor='url'>Enter URL to shorten</Label>
