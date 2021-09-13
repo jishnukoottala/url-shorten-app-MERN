@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Flex } from "rebass"
+import { Flex, Box, Text } from "rebass"
 import axios from "axios"
 
 import { URLItem} from "./URLItem"
@@ -45,6 +45,7 @@ export const URLList = ()=> {
     return (<Flex m={[2,4]} p={3} >
        {loading && <div>loading....</div>}
        <Flex flexDirection="column">
+           <Box mb={3}><Text fontSize={[2,3]}>URL List</Text></Box>
        {urlList && urlList.map(item=> <URLItem key={item._id} {...item} />)}
        </Flex>
        

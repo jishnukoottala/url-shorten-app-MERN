@@ -1,4 +1,4 @@
-import { Flex, Box, Button } from "rebass"
+import { Flex, Box, Text, Button } from "rebass"
 import { useEffect, useState } from "react"
 import { Input , Label} from "@rebass/forms"
 import axios from "axios"
@@ -52,9 +52,9 @@ export const Form = ()=> {
 
     }
     return (
-    <Flex flexDirection="column" m={[2,4]} ><Flex as="form"  p={3}  onSubmit={onSubmit}>
+    <Flex flexDirection="column" m={[2,4]} ><Flex as="form"  alignItems="center" p={3}  onSubmit={onSubmit}>
       
-      <Box width={"50%"}>
+      <Flex width={"50%"} flexDirection="column">
   <Label htmlFor='url'>Enter URL to shorten</Label>
   <Input
     id='url'
@@ -64,8 +64,11 @@ export const Form = ()=> {
     onChange={(e)=> setUrlEntered(e.target.value)}
     placeholder='https://create-react-app.dev/docs/getting-started'
   />
-</Box>
-<Button variant='secondary' type="submit" ml={2}>Shorten</Button>
+</Flex>
+<Flex alignItems="center">
+<Button variant='secondary' sx={{bg:"background", mt:3,paddingY:2, paddingX:2, height:40}}  type="submit" ml={2}>Shorten</Button>
+</Flex>
+
 
 
     </Flex>
@@ -73,7 +76,9 @@ export const Form = ()=> {
         <Box>
             {loading && <Box>loading....</Box>}
             <Box>
-                {urlData && urlData.shortUrl}
+                <Text fontSize={[ 3, 4, 5 ]}
+  fontWeight='bold'
+  color='primary'>{urlData && urlData.shortUrl}</Text>
             </Box>
         </Box>
     </Flex>

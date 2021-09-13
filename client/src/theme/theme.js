@@ -15,7 +15,7 @@ const themeObj = {
           }
         },
         secondary:{
-            bg:"#fff"
+            bg:"background"
         }
     }
 }
