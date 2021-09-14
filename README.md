@@ -1,7 +1,7 @@
 # URL Shortner Service - with MERN Stack
 
 
-- Client - React with Reabss and Theme UI
+- Client - React with Rebass and Theme UI
 - Backend - Node - Express Server with MongoDB Atlas
 
 ## Contents of .env file
