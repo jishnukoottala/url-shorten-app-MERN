@@ -9,15 +9,17 @@
 NODE_ENV = development
 PORT = 5000
 MONGO_URI= mongodb-url
-JWT_SECRET=jwt-secret-key
+
 
 
 
 ## Commands to run the project in local
 
-1. cd url-shortner and `npm install`
+1. Create a new `.env` file, copy the above contents, and also supply any valid mongodb atlas DB URL for `MONGO_URI` property
 
-2. cd client and `npm install`
+2. cd url-shortner and `npm install`
 
-3. Run `npm run dev`
+3. cd client and `npm install`
+
+4. Run `npm run dev`
 
