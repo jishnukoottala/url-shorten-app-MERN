@@ -1,5 +1,5 @@
 import { Flex, Box, Text, Button } from "rebass"
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import { Input , Label} from "@rebass/forms"
 import axios from "axios"
 
@@ -7,7 +7,6 @@ import axios from "axios"
 export const Form = ()=> {
 
     const [urlEntered, setUrlEntered] = useState('')
-    const [submitted, setSubmitted] = useState(false)
     const [urlData, setUrlData] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState({
@@ -23,13 +22,12 @@ export const Form = ()=> {
                 errorMessage: '',
             })
 
-           
-
             const res = await axios.post('/api/url',{
                 url:urlEntered
             })
+            setUrlEntered('')
           
-            console.log("result",res)
+           
             if (res?.data?.success) {
                 setUrlData(res.data.data)
                 setLoading(false)
@@ -52,7 +50,10 @@ export const Form = ()=> {
 
     }
     return (
-    <Flex flexDirection="column" m={[2,4]} ><Flex as="form"  alignItems="center" p={3}  onSubmit={onSubmit}>
+       
+    <Flex flexDirection="column" m={[2,4]} >
+        
+        <Flex as="form"  alignItems="center" p={3}  onSubmit={onSubmit}>
       
       <Flex width={"50%"} flexDirection="column">
   <Label htmlFor='url'>Enter URL to shorten</Label>
@@ -65,13 +66,16 @@ export const Form = ()=> {
     placeholder='https://create-react-app.dev/docs/getting-started'
   />
 </Flex>
+
 <Flex alignItems="center">
 <Button variant='secondary' sx={{bg:"background", mt:3,paddingY:2, paddingX:2, height:40}}  type="submit" ml={2}>Shorten</Button>
 </Flex>
 
 
 
+
     </Flex>
+    {error.showError && (<Text paddingX={3} fontSize={[3,4]} sx={{color:"red"}}>Error Occured!!</Text>)}
     <Flex  p={3}>
         <Box>
             {loading && <Box>loading....</Box>}
